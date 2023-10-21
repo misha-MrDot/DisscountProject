@@ -7,24 +7,24 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     // задание полей
-    float matPlat = 100; // материнская плата с процессором
-    byte matPlatDiscount = 45; // скидка (в процентах)
-    float ram = 41; // оперативная память
-    byte ramDiscount = 55;
-    float rom = 39; // SSD (постоянная память)
-    byte romDiscount = 30;
-    float cooler = 12; // башенный кулер
-    byte coolerDiscount = 25;
-    float caseAndPower = 21; // корпус и блок питания
-    byte caseAndPowerDiscount = 32;
-    float account = 160; // счёт пользователя
+    float coat = 70; // материнская плата с процессором
+    byte coat_sale = 77; // скидка (в процентах)
+    float hat = 25; // оперативная память
+    byte hat_sale = 37;
+    float business_suit = 53; // SSD (постоянная память)
+    byte business_suit_sale = 44;
+    float shirt = 19; // башенный кулер
+    byte shirt_sale = 0;
+    float shoes = 41; // корпус и блок питания
+    byte shoes_sale = 32;
+    float account = 312; // счёт пользователя
 
     // метод подсчёта стоимости серверного комплекта
     private float calculation() {
         // создание и инициализация переменной подсчёта стоимости
-        float count = (matPlat * (100 - matPlatDiscount) + ram * (100 - ramDiscount)
-                + rom * (100 - romDiscount) + cooler * (100 - coolerDiscount)
-                + caseAndPower * (100 - caseAndPowerDiscount)) / 100;
+        float count = (coat * (100 - coat_sale) + hat * (100 - hat_sale)
+                + business_suit * (100 - business_suit_sale) + shirt * (100 - shirt_sale)
+                + shoes * (100 - shoes_sale)) / 100;
         return count; // возврат подсчитанного значения
     }
 
