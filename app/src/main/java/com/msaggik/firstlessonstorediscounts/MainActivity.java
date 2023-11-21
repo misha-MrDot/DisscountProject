@@ -8,27 +8,27 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     // задание полей
     float coat = 70; // материнская плата с процессором
-    byte coat_sale = 77; // скидка (в процентах)
+    byte coatSale = 77; // скидка (в процентах)
     float hat = 25; // оперативная память
-    byte hat_sale = 37;
-    float business_suit = 53; // SSD (постоянная память)
-    byte business_suit_sale = 44;
+    byte hatSale = 37;
+    float businessSuit = 53; // SSD (постоянная память)
+    byte businessSuitSale = 44;
     float shirt = 19; // башенный кулер
-    byte shirt_sale = 0;
+    byte shirtSale = 0;
     float shoes = 41; // корпус и блок питания
-    byte shoes_sale = 32;
+    byte shoesSale = 32;
     float account = 312; // счёт пользователя
 
-    // метод подсчёта стоимости серверного комплекта
+    // метод подсчёта стоимости делового гардероба
     private float calculation() {
         // создание и инициализация переменной подсчёта стоимости
-        float count = (coat * (100 - coat_sale) + hat * (100 - hat_sale)
-                + business_suit * (100 - business_suit_sale) + shirt * (100 - shirt_sale)
-                + shoes * (100 - shoes_sale)) / 100;
+        float count = (coat * (100 - coatSale) + hat * (100 - hatSale)
+                + businessSuit * (100 - businessSuitSale) + shirt * (100 - shirtSale)
+                + shoes * (100 - shoesSale)) / 100;
         return count; // возврат подсчитанного значения
     }
 
-    // метод определения возможностей бюджета покупки серверного комплекта
+    // метод определения возможностей бюджета покупки делового гардроба
     private boolean possibility() {
         if (calculation() <= account) { // если стоимость комплекта меньше имеющихся средств
             return true; // то возврат истинного значения
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     // метод определения возможной сдачи
     private float balance() {
-        if(possibility()) { // если имеется возможность купить серверный комплект
+        if(possibility()) { // если имеется возможность купить деловой гардероб
             return account - calculation(); // то возвращается остаток от покупки
         } else { // иначе
             return -1; // возвращается маркер недостатка денежных средств
@@ -61,11 +61,11 @@ public class MainActivity extends AppCompatActivity {
         balanceOut = findViewById(R.id.balanceOut); // вывод информации о возможном остатке от покупки
 
         // запонение экрана
-        if (possibility()) { // если имеется возможность купить серверный комплект
-            possibilityOut.setText("Имеется достаточно средств для покупки серверного комплекта");
+        if (possibility()) { // если имеется возможность купить деловой гардероб
+            possibilityOut.setText("Имеется достаточно средств для покупки делового гардероба");
             balanceOut.setText("Остаток от покупки " + balance() + " серебрянных монет");
         } else { // иначе
-            possibilityOut.setText("Недостаточно средств для покупки серверного комплекта");
+            possibilityOut.setText("Недостаточно средств для покупки делового гардероба");
             balanceOut.setText(" - ");
         }
     }
